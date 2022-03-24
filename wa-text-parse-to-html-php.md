@@ -1,3 +1,4 @@
+
 ```
 <?php
 class WaParse 
@@ -8,6 +9,7 @@ class WaParse
 
     protected function replace_to_html_format($string)
     {
+        $string = str_replace("\\n","<br/>",$string);
         for($i = 0; $i<strlen($string); $i++){
             foreach($this->parseArry() as $key => $val){
                 $from = $val['from'];
@@ -24,8 +26,7 @@ class WaParse
             }
         }
 
-        $string = str_replace("¶","<br/>",$string);
-        $string = str_replace("\n","<br/>",$string);
+        // $string = str_replace("¶","<br/>",$string);
         return $string;
     }
 
@@ -51,42 +52,40 @@ class WaParse
 }
 
 $test = new WaParse;
-// $string = "*_italic_* *_~italic~_*";
 $string = "
-    hello¶¶¶
+    hello \n
     
-    *hello* 
-    *_hello_* 
-    *~hello~* 
+    *hello* \n
+    *_hello_* \n
+    *~hello~* \n
 
-    ~hello~
-    ~*hello*~
-    ~_hello_~
+    ~hello~ \n
+    ~*hello*~ \n
+    ~_hello_~ \n
 
-    _hello_
-    _*hello*_
-    _~hello~_
+    _hello_ \n
+    _*hello*_ \n
+    _~hello~_ \n
 
-    *~_hello_~*
-    *_~hello~_*
+    *~_hello_~* \n
+    *_~hello~_* \n
 
-    ~_*hello*_~
-    ~*_hello_*~
+    ~_*hello*_~ \n
+    ~*_hello_*~ \n
 
-    _~*hello*~_
-    _*~hello~*_
-
-    ```code```
+    _~*hello*~_ \n
+    _*~hello~*_ \n
 
 ";
-echo($test->parse($string));
+
+echo ($test->parse($string));
 $time_start = microtime(true); 
 
 //sample script
 for($i=0; $i<1000; $i++){
- //do anything
+    //do anything
 }
-
+   
 $time_end = microtime(true);
 
 //dividing with 60 will give the execution time in minutes otherwise seconds
@@ -95,4 +94,3 @@ $execution_time = ($time_end - $time_start)/60;
 //execution time of the script
 echo '<b>Total Execution Time:</b> '.$execution_time.' Mins';
 
-```
