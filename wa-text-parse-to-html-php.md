@@ -1,5 +1,5 @@
 
-```
+```php
 <?php
 class WaParse 
 {
@@ -94,3 +94,47 @@ $execution_time = ($time_end - $time_start)/60;
 //execution time of the script
 echo '<b>Total Execution Time:</b> '.$execution_time.' Mins';
 
+```
+
+
+``` 
+hello
+
+
+    <b>hello</b>
+
+    <b><i>hello</i></b>
+
+    <b><del>hello</del></b>
+
+
+    <del>hello</del>
+
+    <del><b>hello</b></del>
+
+    <del><i>hello</i></del>
+
+
+    <i>hello</i>
+
+    <i><b>hello</b></i>
+
+    <i><del>hello</del></i>
+
+
+    <b><del><i>hello</i></del></b>
+
+    <b><i><del>hello</del></i></b>
+
+
+    <del><i><b>hello</b></i></del>
+
+    <del><b><i>hello</i></b></del>
+
+
+    <i><del><b>hello</b></del></i>
+
+    <i><b><del>hello</del></b></i>
+
+
+<b>Total Execution Time:</b> 1.6689300537109E-7 Mins%  
